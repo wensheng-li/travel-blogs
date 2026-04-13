@@ -13,12 +13,13 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "type": "module",
+  "type": "commonjs",
   "bugs": {
     "url": "https://github.com/wensheng-li/travel-blogs/issues"
   },
   "homepage": "https://github.com/wensheng-li/travel-blogs#readme",
   "dependencies": {
+    "dotenv": "^17.4.2",
     "ejs": "^5.0.2",
     "express": "^5.2.1"
   }
