@@ -1,4 +1,28 @@
 <%- include("partials/header.ejs") %>
-<h1>My Blogs</h1>
-<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas, voluptate.</p>
-<%- include("partials/footer.ejs") %>
+  <div class="container mb-5">
+    <h2 class="mb-4">My Blogs</h2>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas, voluptate.</p>
+    <hr>
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+      <% blogs.forEach(blog=> { %>
+        <div class="col">
+          <div class="card h-100 shadow-sm">
+            <div class="card-body">
+              <img src="<%= blog.image %>" alt="blog image" class="card-img-top blog-card-image">
+              <h5 class="card-title mt-2">
+                <%= blog.title %>
+              </h5>
+              <p class="card-text">
+                <%= blog.content.substring(0, 100) %>...
+              </p>
+              <a href="/blogs/<%= blog.id %>" class="btn btn-primary">Read More</a>
+            </div>
+            <div class="card-footer">
+              <small class="text-muted">Published on: <%= blog.date %></small>
+            </div>
+          </div>
+        </div>
+        <% }) %>
+    </div>
+  </div>
+  <%- include("partials/footer.ejs") %>
