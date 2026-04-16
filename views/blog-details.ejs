@@ -1,8 +1,30 @@
 <%- include("partials/header.ejs") %>
   <a href="/blogs">← Back to Blogs</a>
   <hr>
-  <h1><%= blog.title %></h1>
-  <img src="<%= blog.image %>" alt="blog image" class="img-fluid mb-4">
-  <p><small>Published on: <%= blog.date %></small></p>
-  <div><%= blog.content %></div>
-<%- include("partials/footer.ejs") %>
+  <div class="container my-5">
+    <h1>
+      <%= blog.title %>
+    </h1>
+    <div class="d-flex justify-content-between align-items-start mb-4">
+
+      <p class="text-muted">Published on: <%= blog.date %>
+      </p>
+      <div class="btn-group">
+        <a href="/blogs/<%= blog.id %>/edit" class="btn btn-sm btn-outline-primary">Edit</a>
+        <form action="/blogs/<%= blog.id %>/delete" method="post" style="display: inline;">
+          <button type="submit" class="btn btn-sm btn-outline-danger" onclick="return confirm('Delete this blog?')">
+            Delete
+          </button>
+        </form>
+      </div>
+    </div>
+
+    <article class="blog-details">
+      <img src="<%= blog.image %>" alt="blog image" class="img-fluid mb-4 rounded">
+
+      <div class="blog-body">
+        <%= blog.content %>
+      </div>
+    </article>
+  </div>
+  <%- include("partials/footer.ejs") %>
