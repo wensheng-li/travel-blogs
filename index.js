@@ -84,6 +84,7 @@ const blogs = [
     image: "/images/image1.jpg",
     title: "My First Blog Post",
     date: "2024-06-01",
+    author: "Bruce Lee",
     content: `Risus quis varius quam quisque id diam vel. Scelerisque viverra mauris in aliquam sem fringilla ut morbi tincidunt. Quis varius quam quisque id diam. Quis ipsum suspendisse ultrices gravida dictum fusce. Tellus in metus vulputate eu scelerisque felis imperdiet proin. Cras semper auctor neque vitae tempus quam pellentesque.
       Vel fringilla est ullamcorper eget nulla facilisi etiam dignissim. Ac odio tempor orci dapibus ultrices in. Enim nulla aliquet porttitor lacus luctus. Eget lorem dolor sed viverra ipsum. Risus commodo viverra maecenas accumsan lacus vel facilisis volutpat est. Odio ut sem nulla pharetra diam sit amet nisl. Quam quisque id diam vel quam elementum pulvinar etiam.
 Senectus et netus et malesuada fames ac turpis egestas. Sed libero enim sed faucibus turpis in eu. Pharetra diam sit amet nisl suscipit adipiscing bibendum est. Leo in vitae turpis massa sed elementum tempus egestas. Vulputate dignissim suspendisse in est ante in nibh mauris cursus. Nulla pellentesque dignissim enim sit amet. Eleifend mi in nulla posuere.
@@ -97,6 +98,7 @@ Pharetra diam sit amet nisl suscipit adipiscing bibendum est. Leo in vitae turpi
     image: "/images/image2.jpg",
     title: "My Second Blog Post",
     date: "2024-05-02",
+    author: "Jackie White",
     content: `Risus quis varius quam quisque id diam vel. Scelerisque viverra mauris in aliquam sem fringilla ut morbi tincidunt. Quis varius quam quisque id diam. Quis ipsum suspendisse ultrices gravida dictum fusce. Tellus in metus vulputate eu scelerisque felis imperdiet proin. Cras semper auctor neque vitae tempus quam pellentesque.
       Vel fringilla est ullamcorper eget nulla facilisi etiam dignissim. Ac odio tempor orci dapibus ultrices in. Enim nulla aliquet porttitor lacus luctus. Eget lorem dolor sed viverra ipsum. Risus commodo viverra maecenas accumsan lacus vel facilisis volutpat est. Odio ut sem nulla pharetra diam sit amet nisl. Quam quisque id diam vel quam elementum pulvinar etiam.
 Senectus et netus et malesuada fames ac turpis egestas. Sed libero enim sed faucibus turpis in eu. Pharetra diam sit amet nisl suscipit adipiscing bibendum est. Leo in vitae turpis massa sed elementum tempus egestas. Vulputate dignissim suspendisse in est ante in nibh mauris cursus. Nulla pellentesque dignissim enim sit amet. Eleifend mi in nulla posuere.
@@ -110,6 +112,7 @@ Pharetra diam sit amet nisl suscipit adipiscing bibendum est. Leo in vitae turpi
     image: "/images/image3.jpeg",
     title: "My Third Blog Post",
     date: "2024-06-02",
+    author: "Karen Green",
     content: `Risus quis varius quam quisque id diam vel. Scelerisque viverra mauris in aliquam sem fringilla ut morbi tincidunt. Quis varius quam quisque id diam. Quis ipsum suspendisse ultrices gravida dictum fusce. Tellus in metus vulputate eu scelerisque felis imperdiet proin. Cras semper auctor neque vitae tempus quam pellentesque.
       Vel fringilla est ullamcorper eget nulla facilisi etiam dignissim. Ac odio tempor orci dapibus ultrices in. Enim nulla aliquet porttitor lacus luctus. Eget lorem dolor sed viverra ipsum. Risus commodo viverra maecenas accumsan lacus vel facilisis volutpat est. Odio ut sem nulla pharetra diam sit amet nisl. Quam quisque id diam vel quam elementum pulvinar etiam.
 Senectus et netus et malesuada fames ac turpis egestas. Sed libero enim sed faucibus turpis in eu. Pharetra diam sit amet nisl suscipit adipiscing bibendum est. Leo in vitae turpis massa sed elementum tempus egestas. Vulputate dignissim suspendisse in est ante in nibh mauris cursus. Nulla pellentesque dignissim enim sit amet. Eleifend mi in nulla posuere.
