@@ -11,6 +11,7 @@ app.locals.env = process.env.NODE_ENV;
 const port = process.env.PORT || 3001;
 
 app.use(express.static("public"));
+app.use(express.urlencoded({ extended: true }));
 
 app.get("/", (req, res) => {
   res.render("index.ejs");
@@ -32,9 +33,40 @@ app.get("/blogs/:id", (req, res) => {
   }
 });
 
-app.get("/about", (req, res) => {
-  res.render("about.ejs");
+app.get("/blogs/:id/edit", (req, res) => {
+    const blogId = parseInt(req.params.id);
+    const blog = blogs.find((b) => b.id === blogId);
+    if (!blog) {
+        return res.status(404).send("Blog not found");
+    }
+
+    res.render("blog-update.ejs", { blog: blog, currentDate: new Date().toISOString().split("T")[0] });
 });
+
+app.post("/blogs/:id/update", (req, res) => {
+    const blogId = parseInt(req.params.id, 10);
+    console.log("Updating blog with ID:", blogId);
+    const blog = blogs.find((b) => b.id === blogId);
+    if (!blog) {
+        return res.status(404).send("Blog not found");
+    }
+    blog.title = req.body.title;
+    blog.date = req.body.date;
+    blog.content = req.body.content;
+    blog.image = req.body.image;
+
+    res.redirect(`/blogs/${blogId}`);
+});
+
+app.post("/blogs/:id/delete", (req, res) => {
+    const blogId = parseInt(req.params.id, 10);
+    const index = blogs.findIndex((b) => b.id === blogId);
+    if (index === -1) {
+        return res.status(404).send("Blog not found");
+    }
+    blogs.splice(index, 1);
+    res.redirect("/blogs");
+})
 
 app.get("/contact", (req, res) => {
   res.render("contact.ejs");
