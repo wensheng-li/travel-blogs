@@ -98,7 +98,7 @@ app.post("/blogs/new", (req, res) => {
         ? req.body.image
         : "/images/default.jpeg", // Local default image
   };
-  console.log("New Blog", newBlog);
+  
   blogs.push(newBlog);
   res.redirect("/blogs");
 });
@@ -129,7 +129,7 @@ app.post("/blogs/:id/update", (req, res) => {
     req.body.image && req.body.image.trim()
       ? req.body.image
       : "/images/default.jpeg"; // Local default image
-  console.log("Image URL:", blog.image);
+  
   res.redirect(`/blogs/${blogId}`);
 });
 
@@ -145,6 +145,10 @@ app.post("/blogs/:id/delete", (req, res) => {
 
 app.get("/contact", (req, res) => {
   res.render("contact.ejs");
+});
+
+app.get("/about", (req, res) => {
+  res.render("about.ejs");
 });
 
 app.listen(port, () => {
