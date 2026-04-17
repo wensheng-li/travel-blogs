@@ -1,5 +1,5 @@
 <%- include("partials/header.ejs") %>
-  <a href="/blogs">← Back to Blogs</a>
+  <a href="/blogs" class="back-to-blogs">← Back to Blogs</a>
   <hr>
   <div class="container my-5">
     <h1>
@@ -7,6 +7,7 @@
     </h1>
     <div class="d-flex justify-content-between align-items-center mb-4">
       <p class="text-muted">Published on: <%= blog.date %>
+      <p class="text-muted">By: <%= blog.author %></p>
       </p>
       <div class="btn-group">
         <form action="/blogs/<%= blog.id %>/edit" method="get">

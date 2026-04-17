@@ -28,14 +28,8 @@ p {
   color: grey;
 }
 
-.profile {
-  height: 200px;
-  width: 200px;
-  object-fit: cover;
-  border-radius: 50%;
-}
 form {
-  margin-top: 50px;
+  padding: 5px;
 }
 
 .feedback-input {
@@ -80,4 +74,29 @@ textarea {
 }
 [type="submit"]:hover {
   background: #406093;
+}
+
+/* Blog details page styles */
+.back-to-blogs {
+  display: block;
+  text-align: left;
+  margin: 0;
+  padding: 5vmin 5vmin 10px 5vmin;
+}
+
+.d-flex .btn-group {
+  width: 20%;
+  display: flex;
+  align-items: center;
+}
+
+.btn-group > * {
+  flex: 1;
+}
+
+/*----- Edit Blog Page Styles -----*/
+.col-form-label {
+  text-align: left;
+  font-weight: 500;
+  font-size: large;
 }
