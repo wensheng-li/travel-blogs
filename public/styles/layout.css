@@ -126,6 +126,10 @@ i {
   left: -25px;
 }
 /* ----- Blog Card ----- */
+.col {
+  margin-bottom: 1.5em;
+}
+
 .card {
   transition: transform 0.2s ease-in-out;
   border-radius: 10px;
