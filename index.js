@@ -13,70 +13,6 @@ const port = process.env.PORT || 3001;
 app.use(express.static("public"));
 app.use(express.urlencoded({ extended: true }));
 
-app.get("/", (req, res) => {
-  res.render("index.ejs");
-});
-
-app.get("/blogs", (req, res) => {
-  res.render("blogs.ejs", { blogs: blogs });
-});
-
-app.get("/blogs/:id", (req, res) => {
-  const blogId = parseInt(req.params.id);
-  const blog = blogs.find((b) => b.id === blogId);
-  // console.log("Blog ID:", blogId);
-
-  if (blog) {
-    res.render("blog-details.ejs", { blog: blog });
-  } else {
-    res.status(404).send("Blog not found");
-  }
-});
-
-app.get("/blogs/:id/edit", (req, res) => {
-    const blogId = parseInt(req.params.id);
-    const blog = blogs.find((b) => b.id === blogId);
-    if (!blog) {
-        return res.status(404).send("Blog not found");
-    }
-
-    res.render("blog-update.ejs", { blog: blog, currentDate: new Date().toISOString().split("T")[0] });
-});
-
-app.post("/blogs/:id/update", (req, res) => {
-    const blogId = parseInt(req.params.id, 10);
-    console.log("Updating blog with ID:", blogId);
-    const blog = blogs.find((b) => b.id === blogId);
-    if (!blog) {
-        return res.status(404).send("Blog not found");
-    }
-    blog.title = req.body.title;
-    blog.date = req.body.date;
-    blog.content = req.body.content;
-    blog.image = req.body.image;
-
-    res.redirect(`/blogs/${blogId}`);
-});
-
-app.post("/blogs/:id/delete", (req, res) => {
-    const blogId = parseInt(req.params.id, 10);
-    const index = blogs.findIndex((b) => b.id === blogId);
-    if (index === -1) {
-        return res.status(404).send("Blog not found");
-    }
-    blogs.splice(index, 1);
-    res.redirect("/blogs");
-})
-
-app.get("/contact", (req, res) => {
-  res.render("contact.ejs");
-});
-
-app.listen(port, () => {
-  console.log(`Server is running on port ${port}`);
-  console.log(`Current environment: ${process.env.NODE_ENV}`);
-});
-
 // Sample blog data
 const blogs = [
   {
@@ -122,3 +58,96 @@ Morbi tristique senectus et netus. Est pellentesque elit ullamcorper dignissim c
 Pharetra diam sit amet nisl suscipit adipiscing bibendum est. Leo in vitae turpis massa sed elementum tempus egestas. Vulputate dignissim suspendisse in est ante in nibh mauris cursus. Nulla pellentesque dignissim enim sit amet. Eleifend mi in nulla posuere.`,
   },
 ];
+
+app.get("/", (req, res) => {
+  res.render("index.ejs");
+});
+
+app.get("/blogs", (req, res) => {
+  res.render("blogs.ejs", { blogs: blogs });
+});
+
+app.get("/blogs/new", (req, res) => {
+  res.render("new-blog.ejs", {
+    currentDate: new Date().toISOString().split("T")[0],
+  });
+});
+
+app.get("/blogs/:id/edit", (req, res) => {
+  const blogId = parseInt(req.params.id);
+  const blog = blogs.find((b) => b.id === blogId);
+  if (!blog) {
+    return res.status(404).send("Blog not found");
+  }
+
+  res.render("blog-update.ejs", {
+    blog: blog,
+    currentDate: new Date().toISOString().split("T")[0],
+  });
+});
+
+app.post("/blogs/new", (req, res) => {
+  const newBlog = {
+    id: blogs.length + 1,
+    title: req.body.title,
+    author: req.body.author,
+    content: req.body.content,
+    date: req.body.date,
+    image:
+      req.body.image && req.body.image.trim()
+        ? req.body.image
+        : "/images/default.jpeg", // Local default image
+  };
+  console.log("New Blog", newBlog);
+  blogs.push(newBlog);
+  res.redirect("/blogs");
+});
+
+app.get("/blogs/:id", (req, res) => {
+  const blogId = parseInt(req.params.id);
+  const blog = blogs.find((b) => b.id === blogId);
+  // console.log("Blog ID:", blogId);
+
+  if (blog) {
+    res.render("blog-details.ejs", { blog: blog });
+  } else {
+    res.status(404).send("Blog not found");
+  }
+});
+
+app.post("/blogs/:id/update", (req, res) => {
+  const blogId = parseInt(req.params.id, 10);
+  const blog = blogs.find((b) => b.id === blogId);
+
+  if (!blog) {
+    return res.status(404).send("Blog not found");
+  }
+  blog.title = req.body.title;
+  blog.date = req.body.date;
+  blog.content = req.body.content;
+  blog.image =
+    req.body.image && req.body.image.trim()
+      ? req.body.image
+      : "/images/default.jpeg"; // Local default image
+  console.log("Image URL:", blog.image);
+  res.redirect(`/blogs/${blogId}`);
+});
+
+app.post("/blogs/:id/delete", (req, res) => {
+  const blogId = parseInt(req.params.id, 10);
+  const index = blogs.findIndex((b) => b.id === blogId);
+  if (index === -1) {
+    return res.status(404).send("Blog not found");
+  }
+  blogs.splice(index, 1);
+  res.redirect("/blogs");
+});
+
+app.get("/contact", (req, res) => {
+  res.render("contact.ejs");
+});
+
+app.listen(port, () => {
+  console.log(`Server is running on port ${port}`);
+  console.log(`Current environment: ${process.env.NODE_ENV}`);
+});
