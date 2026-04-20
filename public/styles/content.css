@@ -46,7 +46,7 @@ form {
   border-radius: 5px;
   line-height: 22px;
   background-color: transparent;
-  border: 2px solid #406093;
+  border: 2px solid var(--color-primary);
   transition: all 0.3s;
   padding: 13px;
   margin-bottom: 15px;
@@ -65,9 +65,14 @@ textarea {
   resize: vertical;
 }
 
+.blog-body p {
+  margin-bottom: 1rem;
+  line-height: 1.8;
+}
+
 [type="submit"] {
   width: 100%;
-  background: #406093;
+  background: var(--color-primary);
   border-radius: 5px;
   border: 0;
   cursor: pointer;
@@ -80,7 +85,7 @@ textarea {
   font-weight: 700;
 }
 [type="submit"]:hover {
-  background: #406093;
+  background: var(--color-primary-dark);
 }
 
 /* Blog details page styles */
