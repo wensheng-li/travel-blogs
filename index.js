@@ -16,10 +16,12 @@ app.use(express.urlencoded({ extended: true }));
 // Middleware to set current page for navbar active state
 app.use((req, res, next) => {
   let currentPage = 'home';
-  if (req.path.startsWith('/blogs')) {
-    currentPage = 'blogs';
-  } else if (req.path.startsWith('/contact')) {
-    currentPage = 'contact';
+  if (req.path.startsWith("/blogs")) {
+    currentPage = "blogs";
+  } else if (req.path.startsWith("/about")) {
+    currentPage = "about";
+  } else if (req.path.startsWith("/contact")) {
+    currentPage = "contact";
   }
   res.locals.currentPage = currentPage;
   next();
