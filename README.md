@@ -9,7 +9,7 @@ The application will allow users to create and view blog posts. Posts will not p
 3. Install the packages (Express & EJS Packages)  
    `npm i express ejs`  
 4. Create **.env.dev** file for the local environment configuration
-   > PORT=Your local available port number
+   > PORT=Your local available port number  
    > NODE_ENV=development
    > 
    > SITE_NAME=Travel Blogs
